@@ -60,6 +60,7 @@ class DemoController extends Controller
 
         $file = $request->file('photo');
         $file->move(public_path('uploads'), $file->getClientOriginalName());
-        return response()->json(['success' => 'File uploaded successfully']);
+        // return response()->json(['success' => 'File uploaded successfully']);
+        return response("ok");
     }
 }
