@@ -4,6 +4,7 @@ use App\Http\Controllers\ConstructorController;
 use App\Http\Controllers\DemoActionController;
 use App\Http\Controllers\DemoController;
 use App\Http\Controllers\DemoMiddleController;
+use App\Http\Controllers\LoopController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SessionController;
@@ -79,3 +80,8 @@ route::get('/video',VedioController::class);
 
 route::resource('photo', PhotoController::class);
 Route::get('/hello',[ConstructorController::class,'demo1']);
+
+route::get('/loop/{num1}/{num2}',[LoopController::class,'if_loops']);
+route::get('/switchloop/{num1}/{num2}',[LoopController::class,'switchloop']);
+
+route::get('/loops',[LoopController::class,'loops']);
