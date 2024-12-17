@@ -29,4 +29,11 @@ class HomeController extends Controller
             'message'=>'This is a secret massage ',
         ]);
     }
+
+
+    function downloadFile(Request $request){
+        return response()->json([
+            'message'=>'Download File',
+        ]);
+    }
 }

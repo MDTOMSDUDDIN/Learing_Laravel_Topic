@@ -23,7 +23,11 @@ require __DIR__.'/auth.php';
 
 
 route::get('/public',[HomeController::class,"publicMessage"]);
-route::middleware('auth')->group( function(){
+
+route::middleware('auth','throttle:3,1')->group( function(){
     route::get('/private',[HomeController::class,"PrivateMessage"])->middleware('auth');
     route::get('/secret',[HomeController::class,"secretMessage"])->middleware('auth');
 });
+
+
+route::get('/download',[HomeController::class,"downloadFile"])->middleware('throttle:2,1');
