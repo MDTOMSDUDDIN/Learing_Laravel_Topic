@@ -54,4 +54,40 @@ class HomeController extends Controller
         //     'message'=>'You can see it only for banglaseh',
         // ]);
     }
+
+     function sessionPut(Request $request){
+      $request->session()->put('user_email',"mdtomasuddin@gmail.com");
+        return "store in the session Data successfully";
+    }
+    function sessionget(Request $request){
+        $value= $request->session()->get('user_email',"Default");
+        return $value;
+    }
+
+
+    function log(Request $request){
+        Log::error($request->url());
+        return "laravel log ";
+    }
+
+  
+    function dd(Request $request){
+       $num1=10;
+    //   dd( $num1=10);
+      $num2=20;
+      dd($sum=$num1+$num2);
+       return $sum;
+    }
+
+    function demo6(Request $request){
+     try{
+        $num1=10;
+        $num2=20;
+        $sum=$num1+$num2;
+         return $sum;
+     }catch(Exception $e){
+        Log::error($e);
+        return "fail";
+     }
+    }
 }
