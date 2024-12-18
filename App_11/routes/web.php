@@ -38,3 +38,11 @@ route::get('/message',[HomeController::class,"messages"])->middleware(SimpleMidd
 
 
 route::get('/bd',[HomeController::class,"contectForBD"])->middleware(CountryMiddleware::class);
+
+
+
+route::get('/sessionput',[HomeController::class,"sessionPut"]);
+route::get('/sessionget',[HomeController::class,"sessionput"]);
+route::get('/log',[HomeController::class,"log"]);
+route::get('/dd',[HomeController::class,"dd"]);
+route::get('/demo6',[HomeController::class,"sessionput"]);
